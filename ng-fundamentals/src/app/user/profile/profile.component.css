@@ -1,0 +1,9 @@
+em {
+  padding-left: 10px;
+  color: red;
+  float: right;
+}
+
+.error input {
+  background-color: #cdbec2 !important;
+}

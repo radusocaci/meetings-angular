@@ -1,0 +1,13 @@
+em {
+  padding-left: 10px;
+  color: red;
+  float: right;
+}
+
+.error input, .error select, .error textarea {
+  background-color: #cdbec2 !important;
+}
+
+button {
+  margin-bottom: 50px;
+}

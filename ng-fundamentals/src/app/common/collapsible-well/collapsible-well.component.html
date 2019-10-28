@@ -1,0 +1,4 @@
+<div (click)="toggleContent()" class="well pointable">
+  <ng-content select="[well-title]"></ng-content>
+  <ng-content select="[well-body]" *ngIf="!collapse"></ng-content>
+</div>

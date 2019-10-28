@@ -1,0 +1,11 @@
+.border {
+  margin-bottom: 10px;
+}
+
+i, h4 {
+  display: inline-block;
+}
+
+i {
+  margin-left: 10px;
+}

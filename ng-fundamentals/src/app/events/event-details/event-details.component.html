@@ -1,0 +1,68 @@
+<div class="container">
+  <img [src]="event?.imageUrl" [alt]="event?.name" class="event-image">
+
+  <div class="row">
+    <div class="col-md-11">
+      <h2>{{event?.name | uppercase}} </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div><strong>Date:</strong> {{event?.date}}</div>
+      <div><strong>Time:</strong> {{event?.time}}</div>
+      <div><strong>Price:</strong> {{event?.price | currency: 'USD'}}</div>
+    </div>
+    <div class="col-md-6">
+      <address>
+        <div *ngIf="event?.location?.address">
+          <strong>Address:</strong><br/>
+          {{event?.location?.address}}<br/>
+          {{event?.location?.city}}, {{event?.location?.country}}
+        </div>
+        <div *ngIf="event?.onlineUrl">
+          <strong>OnlineURL:</strong><br/>
+          {{event.onlineUrl}}
+        </div>
+      </address>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <h3>Sessions</h3>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+        Sort
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" (click)="sortedBy='name'">by name</a>
+        <a class="dropdown-item" (click)="sortedBy='voters'">by voters</a>
+      </div>
+    </div>
+    <div class="col-md-7 btn-group">
+      <button class="btn btn-secondary" [class.active]="filterBy === 'all'" (click)="filterBy = 'all'">ALL</button>
+      <button class="btn btn-secondary" [class.active]="filterBy === 'beginner'" (click)="filterBy = 'beginner'">
+        BEGINNER
+      </button>
+      <button class="btn btn-secondary" [class.active]="filterBy === 'intermediate'"
+              (click)="filterBy = 'intermediate'">
+        INTERMEDIATE
+      </button>
+      <button class="btn btn-secondary" [class.active]="filterBy === 'advanced'" (click)="filterBy = 'advanced'">
+        ADVANCED
+      </button>
+    </div>
+    <div class="col-md-2">
+      <a class="btn btn-primary" role="button" (click)="addSession()">Add Session</a>
+    </div>
+  </div>
+  &nbsp;
+  <app-session-list [eventId]="event?.id" *ngIf="!addMode" [sessions]="event?.sessions" [sortedBy]="sortedBy"
+                    [filterBy]="filterBy"></app-session-list>
+
+  <app-create-session (newSessionEvent)="saveSession($event)" *ngIf="addMode"
+                      (cancelAddSession)="cancelAddSession()"></app-create-session>
+</div>

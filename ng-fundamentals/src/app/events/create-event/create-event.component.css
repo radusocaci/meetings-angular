@@ -1,0 +1,14 @@
+em {
+  padding-left: 10px;
+  color: red;
+  float: right;
+}
+
+button {
+  margin-bottom: 50px;
+}
+
+.error input {
+  background-color: #cdbec2 !important;
+}
+

@@ -1,2 +1,2 @@
-# meetings-angular
-Project made following angular course from pluralsight + a small spring back-end
+# Meetings Angular
+Project made following the angular course from pluralsight + a small spring back-end

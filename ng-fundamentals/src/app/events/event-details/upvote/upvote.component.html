@@ -1,0 +1,11 @@
+<div class="votingWidgetContainer pointable" (click)="onClick()">
+  <div class="well votingWidget">
+    <div class="votingButton">
+      <i [ngStyle]="" *ngIf="!voted" class="fa fa-heart-o"></i>
+      <i *ngIf="voted" class="fa fa-heart"></i>
+    </div>
+    <div class="badge badge-light votingCount">
+      <div>{{count}}</div>
+    </div>
+  </div>
+</div>
